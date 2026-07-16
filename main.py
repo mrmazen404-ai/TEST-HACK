@@ -1,6 +1,8 @@
 """
 نقطة الدخول الرئيسية للتطبيق
 """
+
+import asyncio
 from telegram import Update  # <-- أضف هذا السطر
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters
 
@@ -47,10 +49,10 @@ def main() -> None:
     logger.info("✅ البوت جاهز للعمل...")
     print("✅ البوت شغال...")
 
-    application.run_polling(
-        allowed_updates=Update.ALL_TYPES,
-        drop_pending_updates=True,
-    )
+asyncio.run(application.run_polling(
+    allowed_updates=Update.ALL_TYPES,
+    drop_pending_updates=True,
+))
 
 
 if __name__ == "__main__":

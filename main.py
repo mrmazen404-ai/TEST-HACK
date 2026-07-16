@@ -3,6 +3,7 @@
 """
 
 import asyncio
+asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 from telegram import Update  # <-- أضف هذا السطر
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters
 
